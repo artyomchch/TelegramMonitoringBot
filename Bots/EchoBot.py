@@ -45,6 +45,7 @@ async def send_audio_echo(message: Message):
 
 # Этот хэндлер будет срабатывать на отправку боту голосовое
 async def send_voice_echo(message: Message):
+    print(message.model_dump_json(indent=4, exclude_none=True))
     await message.reply_voice(voice = message.voice.file_id)
 
 # Этот хэндлер будет срабатывать на отправку боту стикер
@@ -58,6 +59,7 @@ async def send_document_echo(message: Message):
 # Этот хэндлер будет срабатывать на любые ваши текстовые сообщения,
 # кроме команд "/start" и "/help"
 async def send_echo(message: Message):
+    # print(message.model_dump_json(indent=4, exclude_none=True))
     await message.reply(text=message.text)
 
 
